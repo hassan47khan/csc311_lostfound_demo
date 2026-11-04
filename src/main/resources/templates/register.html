@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register - Campus Lost and Found</title>
+</head>
+<body>
+<h1>Create an account</h1>
+
+<p th:if="${error}" th:text="${error}" style="color: #b00020;" role="alert"></p>
+
+<form th:action="@{/register}" method="post">
+    <p>
+        <label for="username">Username</label><br>
+        <input type="text" id="username" name="username" th:value="${username}"
+               minlength="3" required autofocus>
+    </p>
+    <p>
+        <label for="password">Password</label><br>
+        <input type="password" id="password" name="password" minlength="6" required>
+    </p>
+    <button type="submit">Register</button>
+</form>
+
+<p>Already have an account? <a th:href="@{/login}">Sign in</a></p>
+</body>
+</html>

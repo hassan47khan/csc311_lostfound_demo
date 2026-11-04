@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign in - Campus Lost and Found</title>
+</head>
+<body>
+<h1>Sign in</h1>
+
+<p th:if="${param.registered}" style="color: green;" role="status">Account created. Please sign in.</p>
+<p th:if="${param.error}" style="color: #b00020;" role="alert">Wrong username or password.</p>
+<p th:if="${param.logout}" style="color: green;" role="status">You have signed out.</p>
+
+<form th:action="@{/login}" method="post">
+    <p>
+        <label for="username">Username</label><br>
+        <input type="text" id="username" name="username" required autofocus>
+    </p>
+    <p>
+        <label for="password">Password</label><br>
+        <input type="password" id="password" name="password" required>
+    </p>
+    <button type="submit">Sign in</button>
+</form>
+
+<p>No account yet? <a th:href="@{/register}">Register</a></p>
+</body>
+</html>
